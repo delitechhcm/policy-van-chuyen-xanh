@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quyền hệ thống</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.5;
+        --bg: #0e1116;
+        --card: #171b22;
+        --text: #f4f4f4;
+        --muted: #8b97a8;
+        --accent: #2dd4bf;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        padding: 32px 16px 64px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .page {
+        max-width: 1024px;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        margin-bottom: 4px;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        margin-bottom: 32px;
+        font-size: 1.1rem;
+      }
+
+      .section {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 24px 28px;
+        margin-bottom: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .section h2 {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.35rem;
+        margin: 0 0 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .chip {
+        color: var(--accent);
+      }
+
+      h3 {
+        margin: 24px 0 12px;
+        color: var(--accent);
+        font-size: 1.05rem;
+      }
+
+      ul {
+        padding-left: 20px;
+        margin: 6px 0 18px;
+      }
+
+      li {
+        margin-bottom: 6px;
+      }
+
+      .note {
+        font-size: 0.95rem;
+        color: var(--muted);
+        margin-top: -8px;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 24px 12px 48px;
+        }
+
+        .section {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <h1>📌 QUYỀN MẠNG &amp; HOẠT ĐỘNG NỀN</h1>
+      <p class="subtitle">Danh sách quyền và cách ứng dụng sử dụng trong thực tế.</p>
+
+      <section class="section">
+        <h2><span class="chip">MẠNG</span> INTERNET</h2>
+        <p>Ứng dụng cần kết nối API backend để:</p>
+        <ul>
+          <li>Nhận cuốc xe theo thời gian thực</li>
+          <li>Gửi vị trí tài xế về server</li>
+          <li>Tải bản đồ / định tuyến</li>
+          <li>Gọi thanh toán / WebView</li>
+        </ul>
+        <p class="note">Đây là quyền bắt buộc cho mọi ứng dụng có backend thời gian thực.</p>
+
+        <h3>WAKE_LOCK</h3>
+        <p>Dùng để giữ CPU hoạt động trong các trường hợp:</p>
+        <ul>
+          <li>Đang nhận cuốc hoặc điều hướng</li>
+          <li>Foreground service theo dõi vị trí đang chạy</li>
+          <li>App bị tắt màn hình nhưng tài xế vẫn đang thực hiện chuyến xe</li>
+        </ul>
+        <p class="note">App không tự giữ wake lock lâu dài, chỉ khi thực thi nghiệp vụ.</p>
+
+        <h3>FOREGROUND_SERVICE</h3>
+        <p>Ứng dụng sử dụng foreground service để:</p>
+        <ul>
+          <li>Theo dõi GPS ổn định khi app bị ẩn</li>
+          <li>Giữ kết nối real-time (WebSocket/Firebase)</li>
+          <li>Duy trì bong bóng ChatHead điều hướng</li>
+        </ul>
+        <p class="note">Foreground service luôn hiển thị notification đúng quy định.</p>
+
+        <h3>FOREGROUND_SERVICE_LOCATION (Android 14+)</h3>
+        <p>Foreground service có sử dụng vị trí → Android 14 yêu cầu quyền này để tiếp tục tracking.</p>
+        <p>Ứng dụng chỉ dùng khi:</p>
+        <ul>
+          <li>Tài xế đang bật trạng thái “Trực tuyến”</li>
+          <li>Đang nhận/chạy cuốc</li>
+        </ul>
+
+        <h3>FOREGROUND_SERVICE_SYSTEM_ALERT_WINDOW (Android 14+)</h3>
+        <p>Foreground service đồng thời sử dụng overlay nên hệ điều hành yêu cầu quyền này để tiếp tục hoạt động chathead/bubble.</p>
+        <p class="note">Chỉ dùng khi tài xế bật bong bóng điều hướng.</p>
+      </section>
+
+      <section class="section">
+        <h2><span class="chip">VỊ TRÍ</span> GPS &amp; BACKGROUND</h2>
+        <h3>ACCESS_COARSE_LOCATION / ACCESS_FINE_LOCATION</h3>
+        <p>Ứng dụng cần vị trí GPS chính xác để:</p>
+        <ul>
+          <li>Hiển thị vị trí tài xế trên bản đồ</li>
+          <li>Gửi hành trình chuyến đi</li>
+          <li>Matching đơn hàng gần nhất</li>
+          <li>Tính toán khoảng cách – giá cước</li>
+        </ul>
+        <p class="note">Chỉ dùng khi tài xế bật chế độ “Online”.</p>
+
+        <h3>ACCESS_BACKGROUND_LOCATION</h3>
+        <p>Dùng để tiếp tục cập nhật vị trí khi:</p>
+        <ul>
+          <li>Tài xế tắt màn hình</li>
+          <li>Chuyển app về nền</li>
+          <li>Đang thực hiện cuốc và cần tracking liên tục</li>
+        </ul>
+        <p class="note">Quyền được sử dụng kết hợp với foreground service và tuân thủ chính sách Background Location.</p>
+      </section>
+
+      <section class="section">
+        <h2><span class="chip">DANH BẠ</span> CONTACTS</h2>
+        <h3>READ_CONTACTS / WRITE_CONTACTS</h3>
+        <p>Ứng dụng hỗ trợ các tính năng (tùy chọn):</p>
+        <ul>
+          <li>Lưu số liên hệ khẩn cấp</li>
+          <li>Lấy danh sách liên hệ để mời bạn bè</li>
+        </ul>
+        <p class="note">Nếu không dùng có thể xoá để tránh Play Store hỏi lại (nên xoá trừ khi chắc chắn có tính năng).</p>
+      </section>
+
+      <section class="section">
+        <h2><span class="chip">CAMERA &amp; MEDIA</span></h2>
+        <h3>CAMERA</h3>
+        <p>Dùng để:</p>
+        <ul>
+          <li>Chụp ảnh giấy tờ xe</li>
+          <li>Chụp ảnh hồ sơ cá nhân</li>
+          <li>Selfie xác minh tài xế</li>
+          <li>Chụp hình giao/nhận hàng</li>
+        </ul>
+        <p class="note">Ứng dụng chỉ kích hoạt camera khi người dùng thao tác rõ ràng.</p>
+
+        <h3>READ/WRITE_EXTERNAL_STORAGE</h3>
+        <ul>
+          <li>Chọn ảnh/tài liệu từ thư viện khi đăng ký, cập nhật hồ sơ</li>
+          <li>Lưu file sau khi crop/chụp (image_picker, image_cropper)</li>
+        </ul>
+        <p class="note">Quyền áp dụng cho thiết bị ≤ Android 12 (SDK 32). Android mới tự động chuyển sang quyền media tương ứng.</p>
+      </section>
+
+      <section class="section">
+        <h2><span class="chip">KHỞI ĐỘNG</span> &amp; HỆ THỐNG</h2>
+        <h3>RECEIVE_BOOT_COMPLETED</h3>
+        <p>Foregound service cần được khởi động lại khi thiết bị reboot để:</p>
+        <ul>
+          <li>Duy trì trạng thái tài xế online (nếu trước đó đang online)</li>
+          <li>Đảm bảo tracking không bị gián đoạn</li>
+        </ul>
+        <p class="note">Service chỉ khởi chạy nếu tài xế đã bật chế độ online trước đó.</p>
+
+        <h3>VIBRATE</h3>
+        <p>Rung khi:</p>
+        <ul>
+          <li>Có cuốc mới</li>
+          <li>Thông báo quan trọng về chuyến xe</li>
+          <li>Tránh bỏ lỡ cuốc do tài xế không nhìn màn hình</li>
+        </ul>
+
+        <h3>POST_NOTIFICATIONS</h3>
+        <p>Bắt buộc từ Android 13 để hiển thị:</p>
+        <ul>
+          <li>Thông báo cuốc xe</li>
+          <li>Thông báo từ Firebase Messaging</li>
+          <li>Cảnh báo trạng thái / sự cố chuyến đi</li>
+        </ul>
+        <p class="note">Không yêu cầu khi không trên Android 13+.</p>
+      </section>
+
+      <section class="section">
+        <h2><span class="chip">OVERLAY</span></h2>
+        <h3>SYSTEM_ALERT_WINDOW</h3>
+        <p>Ứng dụng dùng bong bóng điều hướng (ChatHead) giống Grab/Be để:</p>
+        <ul>
+          <li>Tài xế vừa xem bản đồ vừa thao tác app khác</li>
+          <li>Điều khiển nhanh: bắt đầu, kết thúc, báo sự cố</li>
+        </ul>
+        <p class="note">Quyền chỉ được cấp khi tài xế đồng ý trong màn hình Setting → Draw Over Other Apps.</p>
+      </section>
+
+      <section class="section">
+        <h2><span class="chip">PLAY STORE</span></h2>
+        <h3>com.android.vending.setup.PLAY_SETUP_SERVICE</h3>
+        <p>Một số SDK (thanh toán, Play Integrity, hoặc thiết lập cài đặt) yêu cầu quyền này để:</p>
+        <ul>
+          <li>Giao tiếp với Play Store trong quá trình cài đặt hoặc kiểm tra thiết bị</li>
+          <li>Bật cơ chế bảo vệ gian lận (Play Integrity API)</li>
+        </ul>
+        <p class="note">App không gọi thủ công, chỉ theo yêu cầu SDK.</p>
+      </section>
+    </main>
+  </body>
+</html>
