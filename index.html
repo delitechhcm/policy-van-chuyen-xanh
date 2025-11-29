@@ -3,251 +3,774 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quyền hệ thống</title>
+    <title>Điều khoản & Chính sách Deligo</title>
     <style>
-      :root {
-        color-scheme: light dark;
-        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        line-height: 1.5;
-        --bg: #0e1116;
-        --card: #171b22;
-        --text: #f4f4f4;
-        --muted: #8b97a8;
-        --accent: #2dd4bf;
-      }
-
+      /* Reset & Base Styles */
       * {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        padding: 32px 16px 64px;
+        font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #1d1d1f;
+        background: #f7f2fb;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      /* Header Styling */
+      #header {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,.08);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      
+      #header .header-inner {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      
+      #logo {
+        display: flex;
+        align-items: center;
         justify-content: center;
       }
 
-      .page {
-        max-width: 1024px;
-        width: 100%;
+      #logo img {
+        max-height: 60px;
+        width: auto;
+        display: block;
+        height: auto;
       }
-
-      h1 {
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        margin-bottom: 4px;
+      
+      /* Footer Styling */
+      #footer {
+        background: #4a148c;
+        color: #fff;
+        margin-top: 60px;
       }
-
-      .subtitle {
-        color: var(--muted);
-        margin-bottom: 32px;
-        font-size: 1.1rem;
+      
+      #footer .row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
       }
-
-      .section {
-        background: var(--card);
-        border-radius: 20px;
-        padding: 24px 28px;
-        margin-bottom: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+      
+      #footer h3 {
+        margin-bottom: 16px;
+        font-size: 16px;
       }
-
-      .section h2 {
+      
+      #footer p {
+        margin-bottom: 8px;
+      }
+      
+      #footer a {
+        color: #fff;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+      
+      #footer a:hover {
+        opacity: 0.8;
+      }
+      
+      .absolute-footer {
+        background: rgba(0,0,0,0.2);
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+      }
+      
+      /* Back to top button */
+      #top-link {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #4a148c;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 12px;
-        font-size: 1.35rem;
-        margin: 0 0 20px;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(74,20,140,.3);
+        transition: transform 0.2s, box-shadow 0.2s;
+        z-index: 999;
       }
-
-      .chip {
-        color: var(--accent);
+      
+      #top-link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(74,20,140,.4);
       }
-
-      h3 {
-        margin: 24px 0 12px;
-        color: var(--accent);
-        font-size: 1.05rem;
-      }
-
-      ul {
-        padding-left: 20px;
-        margin: 6px 0 18px;
-      }
-
-      li {
-        margin-bottom: 6px;
-      }
-
-      .note {
-        font-size: 0.95rem;
-        color: var(--muted);
-        margin-top: -8px;
-      }
-
-      @media (max-width: 640px) {
-        body {
-          padding: 24px 12px 48px;
+      
+      /* Responsive */
+      @media (max-width: 768px) {
+        #header .header-inner {
+          padding: 15px;
         }
-
-        .section {
-          padding: 20px;
+        
+        #logo img {
+          max-height: 45px;
+        }
+        
+        #footer .row {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 30px 15px;
+        }
+        
+        #top-link {
+          bottom: 20px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
         }
       }
     </style>
   </head>
   <body>
-    <main class="page">
-      <h1>📌 QUYỀN MẠNG &amp; HOẠT ĐỘNG NỀN</h1>
-      <p class="subtitle">Danh sách quyền và cách ứng dụng sử dụng trong thực tế.</p>
+<div id="wrapper">
 
-      <section class="section">
-        <h2><span class="chip">MẠNG</span> INTERNET</h2>
-        <p>Ứng dụng cần kết nối API backend để:</p>
+	<header id="header" class="header has-sticky sticky-jump" style="height: 90px;">
+		<div class="header-wrapper stuck">
+			<div id="masthead" class="header-main ">
+      <div class="header-inner" role="navigation">
+          <!-- Logo -->
+          <div id="logo" class="logo">
+            <a href="#" title="VCX Driver" rel="home">
+              <img src="vcx-driver-logo.png" class="header-logo" alt="VCX Driver">
+            </a>
+          </div>
+      </div>
+
+            <div class="container"><div class="top-divider full-width"></div></div>
+      </div>
+
+<div class="header-bg-container fill"><div class="header-bg-image fill"></div><div class="header-bg-color fill"></div></div>		</div>
+	</header>
+
+	<main id="main" class="">
+
+<div id="content" role="main" class="content-area">
+
+<!-- ============ DELIGO – TERMS UI v2 (Fancy) ============ -->
+<section class="tos2" id="deligo-terms-v2">
+  <style>
+    .tos2{
+      /* Brand colors (your request) */
+      --deligo:#4a148c;      /* tím chủ đạo */
+      --deligo-500:#6e2bc4;  /* tím nhấn */
+      --deligo-200:#c7a6ef;  /* viền/hover focus */
+      --ink:#1d1d1f; --muted:#555; --card:#ffffff; --bg:#f7f2fb;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      font-family:"Open Sans",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink); background:var(--bg);
+      min-height: 100vh;
+    }
+
+    .tos2 .container{max-width:1200px;margin:0 auto;padding:0 18px}
+
+    /* ===== HEADER (nền tím, tiêu đề trắng to rõ) ===== */
+    .tos2 .header{
+      position:relative; overflow:hidden; color:#fff;
+      background:
+        radial-gradient(900px 420px at 5% -10%, rgba(255,255,255,.18), transparent 60%),
+        radial-gradient(900px 420px at 85% 10%, rgba(198,164,240,.22), transparent 55%),
+        linear-gradient(135deg, var(--deligo) 0%, var(--deligo-500) 100%);
+      padding:100px 0 70px;
+      border-bottom:1px solid rgba(255,255,255,.15);
+    }
+    .tos2 .header h1{
+      margin:0 0 12px; font-size:clamp(32px, 5vw, 48px); line-height:1.2; font-weight:900; color:#fff;
+      letter-spacing:-0.5px;
+    }
+    .tos2 .header p{margin:0; font-size:clamp(16px, 2.5vw, 18px); color:#fff; opacity:.95; line-height:1.5}
+
+    /* ===== LAYOUT ===== */
+    .tos2 .main{display:flex; gap:40px; padding:50px 0 70px}
+    .tos2 .sidebar{width:300px; flex-shrink:0}
+    .tos2 .content{flex:1; min-width:0}
+
+    /* ===== SIDEBAR ===== */
+    .tos2 .sbox{
+      position:sticky; top:96px; background:#fff; border:1px solid #eee; border-radius:16px;
+      box-shadow:var(--shadow); padding:10px;
+    }
+    .tos2 .snav{display:flex; flex-direction:column; gap:6px}
+    .tos2 .snav button{
+      appearance:none; border:1px solid transparent; background:transparent;
+      padding:14px 12px 14px 44px; text-align:left; width:100%;
+      border-radius:12px; font-size:14px; color:#3c3c3c; cursor:pointer; position:relative;
+      transition:all .25s ease;
+      font-weight:500;
+    }
+    .tos2 .snav button::before{
+      content:""; position:absolute; left:14px; top:50%; transform:translateY(-50%);
+      width:8px; height:8px; border-radius:2px; background:#bbb; transition:.2s;
+    }
+    .tos2 .snav button:hover{background:#faf7ff;border-color:#f1e8ff}
+    .tos2 .snav button.active{
+      background:linear-gradient(135deg,var(--deligo) 0%, var(--deligo-500) 100%);
+      color:#fff; border-color:transparent;
+    }
+    .tos2 .snav button.active::before{background:#fff}
+
+    /* ===== MOBILE MENU ===== */
+    .tos2 .mobile{display:none; position:relative; margin-bottom:10px}
+    .tos2 .m-trigger{
+      width:100%; background:#fff; border:1px solid #eae2ff; border-radius:14px;
+      padding:16px 18px; display:flex; justify-content:space-between; align-items:center;
+      cursor:pointer; font-size:16px; color:#3b2b4f; box-shadow:var(--shadow);
+      font-weight:600; transition:all 0.2s;
+    }
+    .tos2 .m-trigger:hover{
+      border-color:var(--deligo-200);
+      box-shadow:0 8px 20px rgba(74,20,140,.15);
+    }
+    .tos2 .m-dd{
+      position:absolute; top:100%; left:0; right:0; background:#fff; border:1px solid #eee;
+      border-top:none; border-radius:0 0 14px 14px; box-shadow:var(--shadow); z-index:10; display:none;
+    }
+    .tos2 .m-dd.show{display:block}
+    .tos2 .m-dd button{
+      width:100%; text-align:left; background:#fff; border:0; border-bottom:1px solid #f5f5f5;
+      padding:12px 16px; cursor:pointer; font-size:14px; color:#444;
+    }
+    .tos2 .m-dd button:hover{background:#faf6ff}
+    .tos2 .m-dd button.active{background:var(--deligo); color:#fff}
+
+    /* ===== TYPO & SECTION ===== */
+    .tos2 .section{display:none; max-width:900px}
+    .tos2 .section.active{display:block; animation: fadeIn 0.3s ease-in}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .tos2 .content h1{font-size:clamp(28px, 4vw, 34px); font-weight:900; color:#1b2056; margin:0 0 20px; line-height:1.3}
+    .tos2 .content h2{font-size:clamp(22px, 3vw, 24px); font-weight:800; color:#1b2056; margin:32px 0 16px; line-height:1.4}
+    .tos2 .content h3{font-size:clamp(18px, 2.5vw, 20px); font-weight:800; color:var(--deligo); margin:26px 0 12px; line-height:1.4}
+    .tos2 .content h4{font-size:clamp(16px, 2vw, 18px); font-weight:700; color:var(--deligo); margin:20px 0 10px; line-height:1.4}
+    .tos2 .content p{margin:0 0 16px; color:var(--muted); line-height:1.7; font-size:15px}
+    .tos2 .content ul{margin:12px 0 18px; padding-left:24px; line-height:1.8}
+    .tos2 .content li{margin:0 0 10px; color:var(--muted); line-height:1.7; font-size:15px}
+
+    /* ===== CARDS ===== */
+    .tos2 .card{
+      background:#fff; border:1px solid #eee; border-radius:16px; box-shadow:var(--shadow);
+      padding:28px; margin:24px 0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .tos2 .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+    }
+    .tos2 .note{
+      background:#faf6ff; border:1px dashed var(--deligo-200); border-radius:16px; padding:20px; margin:24px 0;
+    }
+
+    /* ===== TABLE ===== */
+    .tos2 .twrap{overflow-x:auto; margin:20px 0; border-radius:14px}
+    .tos2 table{width:100%; border-collapse:collapse; background:#fff; border-radius:14px; overflow:hidden; box-shadow:var(--shadow)}
+    .tos2 th{
+      background:linear-gradient(135deg,var(--deligo) 0%, var(--deligo-500) 100%);
+      color:#fff; font-weight:800; padding:16px 14px; text-align:left; font-size:14px;
+      letter-spacing:0.3px;
+    }
+    .tos2 td{padding:14px; border-bottom:1px solid #eee; color:#444; font-weight:500; font-size:14px; line-height:1.6}
+    .tos2 tr:nth-child(even){background:#fbf9ff}
+    .tos2 tr:hover{background:#f5f0ff}
+    .tos2 tr:last-child td{border-bottom:none}
+
+    /* ===== CONTACT ===== */
+    .tos2 .contact{display:grid; gap:16px; grid-template-columns:1fr; margin:20px 0}
+    .tos2 .item{display:flex; gap:12px; align-items:flex-start; color:#4d4d4d; padding:8px 0}
+    .tos2 .icon{width:22px; height:22px; color:var(--deligo-500); flex:0 0 22px; margin-top:2px}
+    .tos2 a{color:var(--deligo-500); text-decoration:none; font-weight:500; transition:color 0.2s}
+    .tos2 a:hover{color:var(--deligo); text-decoration:underline}
+
+    /* ===== "Purple band" section header (optional) ===== */
+    .tos2 .band{
+      background:linear-gradient(135deg,var(--deligo) 0%, var(--deligo-500) 100%);
+      color:#fff; border-radius:16px; padding:28px 24px; margin:24px 0;
+      box-shadow:var(--shadow);
+    }
+    .tos2 .band h2, .tos2 .band h1, .tos2 .band h3{color:#fff !important; margin:0 0 12px; line-height:1.3}
+    .tos2 .band p{color:#fff; opacity:.95; line-height:1.6; font-size:15px}
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px){
+      .tos2 .main{gap:28px}
+      .tos2 .sidebar{width:260px}
+    }
+    @media (max-width: 768px){
+      .tos2 .header{padding:80px 0 50px}
+      .tos2 .main{flex-direction:column; gap:20px; padding:35px 0 50px}
+      .tos2 .sidebar{display:none}
+      .tos2 .mobile{display:block}
+      .tos2 .card{padding:20px; margin:20px 0}
+      .tos2 th,.tos2 td{padding:12px 10px; font-size:14px}
+    }
+    @media (max-width: 480px){
+      .tos2 .header{padding:60px 0 40px}
+      .tos2 .main{padding:25px 0 40px}
+      .tos2 .card{padding:18px; margin:16px 0}
+      .tos2 .content ul{padding-left:20px}
+    }
+
+    /* ===== Focus states for accessibility ===== */
+    .tos2 .snav button:focus,
+    .tos2 .m-dd button:focus,
+    .tos2 .m-trigger:focus{
+      outline:2px solid var(--deligo-200); outline-offset:2px;
+      }
+    </style>
+
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <div class="container">
+      <h1>Điều khoản &amp; Chính sách Deligo</h1>
+      <p>Minh bạch – Dễ hiểu – Tuân thủ pháp luật Việt Nam</p>
+    </div>
+  </div>
+
+  <div class="container main">
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile">
+      <button class="m-trigger" type="button" onclick="t2_toggle()">
+        <span id="t2-label">Điều khoản sử dụng</span>
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="m-dd" id="t2-dd" role="menu" aria-label="Danh mục điều khoản">
+        <button onclick="t2_show('dk', this)">Điều khoản sử dụng</button>
+        <button onclick="t2_show('hanghoa', this)">Quy định hàng hóa</button>
+        <button onclick="t2_show('quytrinh', this)">Quy trình sử dụng</button>
+        <button onclick="t2_show('khachhang', this)">Quyền &amp; Trách nhiệm Khách hàng</button>
+        <button onclick="t2_show('deligo', this)">Quyền &amp; Trách nhiệm Deligo</button>
+        <button onclick="t2_show('mientru', this)">Miễn trừ trách nhiệm</button>
+        <button onclick="t2_show('baomat', this)">Bảo mật dữ liệu cá nhân</button>
+        <button onclick="t2_show('baomat-tt', this)">Bảo mật thông tin thanh toán</button>
+        <button onclick="t2_show('pt-thanhtoan', this)">Phương thức thanh toán</button>
+        <button onclick="t2_show('vitri', this)">Chính sách vị trí</button>
+      </div>
+    </div>
+
+    <!-- ===== SIDEBAR (Desktop) ===== -->
+    <aside class="sidebar" aria-label="Mục lục điều khoản">
+      <div class="sbox">
+        <nav class="snav">
+          <button class="active" onclick="t2_show('dk', this)">Điều khoản sử dụng</button>
+          <button onclick="t2_show('hanghoa', this)" class="">Quy định hàng hóa</button>
+          <button onclick="t2_show('quytrinh', this)" class="">Quy trình sử dụng</button>
+          <button onclick="t2_show('khachhang', this)" class="">Quyền &amp; Trách nhiệm Khách hàng</button>
+          <button onclick="t2_show('deligo', this)" class="">Quyền &amp; Trách nhiệm Deligo</button>
+          <button onclick="t2_show('mientru', this)" class="">Miễn trừ trách nhiệm</button>
+          <button onclick="t2_show('baomat', this)" class="">Bảo mật dữ liệu cá nhân</button>
+          <button onclick="t2_show('baomat-tt', this)" class="">Bảo mật thông tin thanh toán</button>
+          <button onclick="t2_show('pt-thanhtoan', this)">Phương thức thanh toán</button>
+          <button onclick="t2_show('vitri', this)">Chính sách vị trí</button>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- ===== CONTENT ===== -->
+    <div class="content">
+
+      <!-- Band (tím, title trắng to) -->
+      <div class="band">
+        <h1>Thông tin pháp lý &amp; liên hệ</h1>
+        <p>Giấy CNĐKDN: <strong>0318952032</strong> (14/05/2025) – Sở KH&amp;ĐT TP.HCM</p>
+      </div>
+
+      <!-- Điều khoản sử dụng -->
+      <section id="dk" class="section active" aria-labelledby="h-dk">
+        <h1 id="h-dk">Điều khoản sử dụng</h1>
+        <p>Khi truy cập/đăng ký và sử dụng nền tảng Deligo, bạn đồng ý với các điều khoản sau:</p>
         <ul>
-          <li>Nhận cuốc xe theo thời gian thực</li>
-          <li>Gửi vị trí tài xế về server</li>
-          <li>Tải bản đồ / định tuyến</li>
-          <li>Gọi thanh toán / WebView</li>
-        </ul>
-        <p class="note">Đây là quyền bắt buộc cho mọi ứng dụng có backend thời gian thực.</p>
-
-        <h3>WAKE_LOCK</h3>
-        <p>Dùng để giữ CPU hoạt động trong các trường hợp:</p>
-        <ul>
-          <li>Đang nhận cuốc hoặc điều hướng</li>
-          <li>Foreground service theo dõi vị trí đang chạy</li>
-          <li>App bị tắt màn hình nhưng tài xế vẫn đang thực hiện chuyến xe</li>
-        </ul>
-        <p class="note">App không tự giữ wake lock lâu dài, chỉ khi thực thi nghiệp vụ.</p>
-
-        <h3>FOREGROUND_SERVICE</h3>
-        <p>Ứng dụng sử dụng foreground service để:</p>
-        <ul>
-          <li>Theo dõi GPS ổn định khi app bị ẩn</li>
-          <li>Giữ kết nối real-time (WebSocket/Firebase)</li>
-          <li>Duy trì bong bóng ChatHead điều hướng</li>
-        </ul>
-        <p class="note">Foreground service luôn hiển thị notification đúng quy định.</p>
-
-        <h3>FOREGROUND_SERVICE_LOCATION (Android 14+)</h3>
-        <p>Foreground service có sử dụng vị trí → Android 14 yêu cầu quyền này để tiếp tục tracking.</p>
-        <p>Ứng dụng chỉ dùng khi:</p>
-        <ul>
-          <li>Tài xế đang bật trạng thái “Trực tuyến”</li>
-          <li>Đang nhận/chạy cuốc</li>
+          <li>Đủ 18 tuổi hoặc có sự đồng ý của người giám hộ hợp pháp.</li>
+          <li>Bảo mật thông tin tài khoản; chịu trách nhiệm với mọi hoạt động phát sinh.</li>
+          <li>Không sử dụng dịch vụ cho mục đích trái pháp luật hoặc xâm phạm quyền sở hữu trí tuệ.</li>
         </ul>
 
-        <h3>FOREGROUND_SERVICE_SYSTEM_ALERT_WINDOW (Android 14+)</h3>
-        <p>Foreground service đồng thời sử dụng overlay nên hệ điều hành yêu cầu quyền này để tiếp tục hoạt động chathead/bubble.</p>
-        <p class="note">Chỉ dùng khi tài xế bật bong bóng điều hướng.</p>
+        <div class="card">
+          <h3>Phạm vi dịch vụ</h3>
+          <p>Deligo cung cấp dịch vụ chở khách, giao đồ ăn và đặt giao hàng trực tuyến. Việc sử dụng dịch vụ đồng nghĩa bạn tuân thủ pháp luật hiện hành và chính sách của Deligo.</p>
+        </div>
+
+        <div class="card">
+          <h3>Liên hệ</h3>
+          <div class="contact">
+            <div class="item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <span>Email: <a href="mailto:deligrouphcm@gmail.com">deligrouphcm@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <span>Hotline: <a href="tel:+842886899978">+84 288 689 9978</a></span>
+            </div>
+            <div class="item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span>VP: 510 Kinh Dương Vương, P. An Lạc, Q. Bình Tân, TP.HCM</span>
+            </div>
+            <div class="item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              <span>Mã số thuế: <strong>0318952032</strong></span>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="section">
-        <h2><span class="chip">VỊ TRÍ</span> GPS &amp; BACKGROUND</h2>
-        <h3>ACCESS_COARSE_LOCATION / ACCESS_FINE_LOCATION</h3>
-        <p>Ứng dụng cần vị trí GPS chính xác để:</p>
-        <ul>
-          <li>Hiển thị vị trí tài xế trên bản đồ</li>
-          <li>Gửi hành trình chuyến đi</li>
-          <li>Matching đơn hàng gần nhất</li>
-          <li>Tính toán khoảng cách – giá cước</li>
+      <!-- Quy định hàng hóa -->
+      <section id="hanghoa" class="section" aria-labelledby="h-hh">
+        <h1 id="h-hh">Quy định hàng hóa</h1>
+        <div class="card">
+          <h3>Hàng hóa ngoài phạm vi</h3>
+          <ul>
+            <li>Sinh vật sống; khí đốt; xăng dầu; rượu các loại</li>
+            <li>Thực phẩm nguy cơ cao; phim/băng/đĩa in – sao chép</li>
+            <li>Đèn pin siêu sáng; mực in; một số bột hoá chất</li>
         </ul>
-        <p class="note">Chỉ dùng khi tài xế bật chế độ “Online”.</p>
-
-        <h3>ACCESS_BACKGROUND_LOCATION</h3>
-        <p>Dùng để tiếp tục cập nhật vị trí khi:</p>
-        <ul>
-          <li>Tài xế tắt màn hình</li>
-          <li>Chuyển app về nền</li>
-          <li>Đang thực hiện cuốc và cần tracking liên tục</li>
+        </div>
+        <div class="card">
+          <h3>Giới hạn theo phương tiện</h3>
+          <h4>Xe máy</h4>
+          <ul>
+            <li>Tối đa 60kg; kích thước 90 × 60 × 90 cm</li>
+            <li>Đóng gói chắc chắn; không chở cồng kềnh vượt quy định</li>
         </ul>
-        <p class="note">Quyền được sử dụng kết hợp với foreground service và tuân thủ chính sách Background Location.</p>
+          <h4>Xe tải/xe ba bánh</h4>
+          <p>Giới hạn tuỳ loại phương tiện khách chọn khi tạo đơn.</p>
+        </div>
+        <div class="card">
+          <h3>Từ chối nhận/giao</h3>
+          <ul>
+            <li>Vi phạm pháp luật; thông tin đơn không rõ; thanh toán không hợp lệ</li>
+            <li>Ngoài phạm vi/thời gian; thiếu tài xế; dấu hiệu lừa đảo</li>
+        </ul>
+        </div>
       </section>
 
-      <section class="section">
-        <h2><span class="chip">DANH BẠ</span> CONTACTS</h2>
-        <h3>READ_CONTACTS / WRITE_CONTACTS</h3>
-        <p>Ứng dụng hỗ trợ các tính năng (tùy chọn):</p>
-        <ul>
-          <li>Lưu số liên hệ khẩn cấp</li>
-          <li>Lấy danh sách liên hệ để mời bạn bè</li>
-        </ul>
-        <p class="note">Nếu không dùng có thể xoá để tránh Play Store hỏi lại (nên xoá trừ khi chắc chắn có tính năng).</p>
+      <!-- Quy trình -->
+      <section id="quytrinh" class="section" aria-labelledby="h-qt">
+        <h1 id="h-qt">Quy trình sử dụng</h1>
+        <div class="twrap">
+          <h3>Dịch vụ nội tỉnh – so sánh nhanh</h3>
+          <table>
+            <thead><tr><th>Loại dịch vụ</th><th>Thời gian</th><th>Phương tiện</th><th>Khu vực</th></tr></thead>
+            <tbody>
+              <tr><td>Siêu tốc</td><td>Trong 2 giờ</td><td>Xe máy</td><td>Nội thành HCM</td></tr>
+              <tr><td>2h</td><td>Trong 2 giờ</td><td>Xe máy</td><td>Nội thành HCM</td></tr>
+              <tr><td>4h</td><td>Trong 4 giờ</td><td>Xe máy</td><td>Toàn TP.HCM</td></tr>
+              <tr><td>Tiết kiệm</td><td>1–2 ngày</td><td>Xe máy/Xe tải</td><td>Toàn quốc</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="twrap">
+          <h3>Khu vực phục vụ</h3>
+          <table>
+            <thead><tr><th>Dịch vụ</th><th>Khu vực nhận</th><th>Khu vực giao</th></tr></thead>
+            <tbody>
+              <tr><td>Siêu tốc</td><td>Nội thành HCM</td><td>Nội thành HCM</td></tr>
+              <tr><td>2h</td><td>Nội thành HCM</td><td>Nội thành HCM</td></tr>
+              <tr><td>4h</td><td>Toàn TP.HCM</td><td>Toàn TP.HCM</td></tr>
+              <tr><td>Tiết kiệm</td><td>Toàn quốc</td><td>Toàn quốc</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="twrap">
+          <h3>Tùy chọn đặc biệt</h3>
+          <table>
+            <thead><tr><th>Dịch vụ</th><th>Tùy chọn</th></tr></thead>
+            <tbody>
+              <tr><td>Giao tận tay</td><td>Giao trực tiếp người nhận</td></tr>
+              <tr><td>Thu hộ COD</td><td>Thu tiền từ người nhận</td></tr>
+              <tr><td>Quay lại điểm lấy hàng</td><td>Trả dụng cụ/chứng từ</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
-      <section class="section">
-        <h2><span class="chip">CAMERA &amp; MEDIA</span></h2>
-        <h3>CAMERA</h3>
-        <p>Dùng để:</p>
-        <ul>
-          <li>Chụp ảnh giấy tờ xe</li>
-          <li>Chụp ảnh hồ sơ cá nhân</li>
-          <li>Selfie xác minh tài xế</li>
-          <li>Chụp hình giao/nhận hàng</li>
+      <!-- Quyền & Trách nhiệm Khách hàng -->
+      <section id="khachhang" class="section" aria-labelledby="h-kh">
+        <h1 id="h-kh">Quyền &amp; Trách nhiệm Khách hàng</h1>
+        <div class="card">
+          <h3>Quyền</h3>
+          <ul>
+            <li>Đặt dịch vụ qua Web/App; theo dõi lộ trình; xem thông tin tài xế.</li>
+            <li>Yêu cầu tài xế ứng trước đúng số tiền COD (nếu có).</li>
+          </ul>
+          <h3>Trách nhiệm</h3>
+          <ul>
+            <li>Khai chính xác thông tin hàng hóa và COD; cung cấp số điện thoại người nhận.</li>
+            <li>Chọn đúng tuỳ chọn thêm; thanh toán đầy đủ phí/phụ phí.</li>
+            <li>Đóng gói đúng quy cách; hướng dẫn bốc xếp khi cần.</li>
         </ul>
-        <p class="note">Ứng dụng chỉ kích hoạt camera khi người dùng thao tác rõ ràng.</p>
-
-        <h3>READ/WRITE_EXTERNAL_STORAGE</h3>
-        <ul>
-          <li>Chọn ảnh/tài liệu từ thư viện khi đăng ký, cập nhật hồ sơ</li>
-          <li>Lưu file sau khi crop/chụp (image_picker, image_cropper)</li>
-        </ul>
-        <p class="note">Quyền áp dụng cho thiết bị ≤ Android 12 (SDK 32). Android mới tự động chuyển sang quyền media tương ứng.</p>
+        </div>
       </section>
 
-      <section class="section">
-        <h2><span class="chip">KHỞI ĐỘNG</span> &amp; HỆ THỐNG</h2>
-        <h3>RECEIVE_BOOT_COMPLETED</h3>
-        <p>Foregound service cần được khởi động lại khi thiết bị reboot để:</p>
-        <ul>
-          <li>Duy trì trạng thái tài xế online (nếu trước đó đang online)</li>
-          <li>Đảm bảo tracking không bị gián đoạn</li>
+      <!-- Quyền & Trách nhiệm Deligo -->
+      <section id="deligo" class="section" aria-labelledby="h-deli">
+        <h1 id="h-deli">Quyền &amp; Trách nhiệm Deligo</h1>
+        <div class="card">
+          <ul>
+            <li>Minh bạch dịch vụ, cước phí, bồi thường (nếu có).</li>
+            <li>Hướng dẫn khách hàng sử dụng đúng quy trình.</li>
+            <li>Đảm bảo chất lượng theo tiêu chuẩn; thông báo phương án xử lý khi có sự cố.</li>
+            <li>Hoàn trả hàng nếu không giao được; khách hoàn trả COD đã ứng và thanh toán phí phát sinh.</li>
+            <li>Tiếp nhận &amp; xử lý khiếu nại liên quan dịch vụ.</li>
         </ul>
-        <p class="note">Service chỉ khởi chạy nếu tài xế đã bật chế độ online trước đó.</p>
-
-        <h3>VIBRATE</h3>
-        <p>Rung khi:</p>
-        <ul>
-          <li>Có cuốc mới</li>
-          <li>Thông báo quan trọng về chuyến xe</li>
-          <li>Tránh bỏ lỡ cuốc do tài xế không nhìn màn hình</li>
-        </ul>
-
-        <h3>POST_NOTIFICATIONS</h3>
-        <p>Bắt buộc từ Android 13 để hiển thị:</p>
-        <ul>
-          <li>Thông báo cuốc xe</li>
-          <li>Thông báo từ Firebase Messaging</li>
-          <li>Cảnh báo trạng thái / sự cố chuyến đi</li>
-        </ul>
-        <p class="note">Không yêu cầu khi không trên Android 13+.</p>
+        </div>
       </section>
 
-      <section class="section">
-        <h2><span class="chip">OVERLAY</span></h2>
-        <h3>SYSTEM_ALERT_WINDOW</h3>
-        <p>Ứng dụng dùng bong bóng điều hướng (ChatHead) giống Grab/Be để:</p>
-        <ul>
-          <li>Tài xế vừa xem bản đồ vừa thao tác app khác</li>
-          <li>Điều khiển nhanh: bắt đầu, kết thúc, báo sự cố</li>
+      <!-- Miễn trừ -->
+      <section id="mientru" class="section" aria-labelledby="h-mt">
+        <h1 id="h-mt">Miễn trừ trách nhiệm</h1>
+        <div class="card">
+          <p>Deligo miễn trừ với thiệt hại/yêu cầu phát sinh từ:</p>
+          <ul>
+            <li>Vi phạm pháp luật/chính sách; hàng cấm; thiếu chứng từ.</li>
+            <li>Hành vi của khách/bên thứ ba (cẩu thả, cố ý, lừa dối, cướp giật…).</li>
+            <li>Đặc tính hàng hóa; khách từ chối nhận lại; trường hợp bất khả kháng.</li>
         </ul>
-        <p class="note">Quyền chỉ được cấp khi tài xế đồng ý trong màn hình Setting → Draw Over Other Apps.</p>
+        </div>
       </section>
 
-      <section class="section">
-        <h2><span class="chip">PLAY STORE</span></h2>
-        <h3>com.android.vending.setup.PLAY_SETUP_SERVICE</h3>
-        <p>Một số SDK (thanh toán, Play Integrity, hoặc thiết lập cài đặt) yêu cầu quyền này để:</p>
-        <ul>
-          <li>Giao tiếp với Play Store trong quá trình cài đặt hoặc kiểm tra thiết bị</li>
-          <li>Bật cơ chế bảo vệ gian lận (Play Integrity API)</li>
+      <!-- Bảo mật dữ liệu cá nhân -->
+      <section id="baomat" class="section" aria-labelledby="h-bm">
+        <h1 id="h-bm">Bảo mật &amp; Bảo vệ dữ liệu cá nhân</h1>
+        <div class="card">
+          <h3>Phạm vi áp dụng</h3>
+          <p>Tuân thủ Nghị định 13/2023/NĐ-CP, áp dụng với người dùng, đối tác, ứng viên…</p>
+        </div>
+        <div class="card">
+          <h3>Dữ liệu thu thập</h3>
+          <ul>
+            <li>Thông tin cơ bản (họ tên, email, điện thoại, địa chỉ…)</li>
+            <li>Thông tin phương tiện, đơn hàng, lịch sử sử dụng, vị trí GPS</li>
+            <li>Dữ liệu nhạy cảm (nếu có và được phép)</li>
         </ul>
-        <p class="note">App không gọi thủ công, chỉ theo yêu cầu SDK.</p>
+        </div>
+        <div class="card">
+          <h3>Mục đích sử dụng</h3>
+          <ul>
+            <li>Cung cấp/quản lý dịch vụ; hỗ trợ; an ninh; tuân thủ pháp luật.</li>
+            <li>Tiếp thị: xin phép trước; có quyền từ chối.</li>
+        </ul>
+        </div>
       </section>
+
+      <!-- Bảo mật thông tin thanh toán -->
+      <section id="baomat-tt" class="section" aria-labelledby="h-bmtt">
+        <h1 id="h-bmtt">Bảo mật thông tin thanh toán</h1>
+        <div class="card">
+          <h3>Biện pháp</h3>
+          <ul>
+            <li>SSL/TLS; Tokenization; 2FA; giám sát 24/7; Firewall/IDS</li>
+        </ul>
+          <h3>Chia sẻ</h3>
+        <ul>
+            <li>Đối tác thanh toán ủy quyền; cơ quan có thẩm quyền; phòng chống gian lận</li>
+        </ul>
+        </div>
+      </section>
+
+      <!-- Phương thức thanh toán -->
+      <section id="pt-thanhtoan" class="section" aria-labelledby="h-pttt">
+        <h1 id="h-pttt">Phương thức thanh toán</h1>
+        <div class="card">
+          <ul>
+            <li>Tiền mặt: thu trực tiếp theo lựa chọn trên đơn.</li>
+            <li>Không dùng tiền mặt: Ví (MoMo, ZaloPay, ShopeePay), thẻ ngân hàng, tài khoản trả trước.</li>
+        </ul>
+        </div>
+        <div class="card">
+          <h3>Tài khoản trả trước</h3>
+          <div class="note">
+            <p><strong>Chủ TK:</strong> CONG TY CO PHAN DELI GROUP<br>
+               <strong>Số TK:</strong> MS01T13588565339528 – TECHCOMBANK</p>
+          </div>
+          <p>Nạp qua ví, chuyển khoản hoặc quét QR. Khi chuyển khoản, ghi <strong>mã đơn</strong> trong nội dung.</p>
+        </div>
+      </section>
+
+      <!-- Chính sách vị trí -->
+      <section id="vitri" class="section" aria-labelledby="h-vt">
+        <h1 id="h-vt">Chính sách vị trí</h1>
+        <div class="card">
+          <ul>
+            <li>Tìm tài xế gần nhất; xác định điểm đón/đến chính xác.</li>
+            <li>Theo dõi thời gian thực trên bản đồ; cập nhật ETA.</li>
+        </ul>
+          <p>Deligo sử dụng thông tin vị trí đúng mục đích, bảo đảm an toàn và tuân thủ pháp luật.</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const root = document.getElementById('deligo-terms-v2');
+      const dd = root.querySelector('#t2-dd');
+      const label = root.querySelector('#t2-label');
+
+      window.t2_show = function(id, btn){
+        // sections
+        root.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        const target = root.querySelector('#'+id);
+        if(target) target.classList.add('active');
+
+        // desktop active
+        root.querySelectorAll('.snav button').forEach(b => b.classList.remove('active'));
+        if(btn && btn.closest('.snav')) btn.classList.add('active');
+
+        // mobile active
+        root.querySelectorAll('.m-dd button').forEach(b => b.classList.remove('active'));
+        if(btn && btn.closest('.m-dd')) btn.classList.add('active');
+
+        // label + close
+        if(btn && label) label.textContent = btn.textContent.trim();
+        if(dd) dd.classList.remove('show');
+
+        // smooth jump to top of content
+        const top = root.querySelector('.content').getBoundingClientRect().top + window.scrollY - 20;
+        window.scrollTo({top, behavior:'smooth'});
+      };
+
+      window.t2_toggle = function(){
+        dd && dd.classList.toggle('show');
+      };
+
+      // click outside to close
+      document.addEventListener('click', function(e){
+        const mobile = root.querySelector('.mobile');
+        if(mobile && !mobile.contains(e.target)) dd && dd.classList.remove('show');
+      }, true);
+    })();
+  </script>
+</section>
+<!-- ============ /END DELIGO – TERMS UI v2 ============ -->
+
+</div>
+
     </main>
+
+<footer id="footer" class="footer-wrapper">
+
+	<section class="section" id="section_1494960262">
+		<div class="section-bg fill">
+									<div class="section-bg-overlay absolute fill"></div>
+		</div>
+
+		<div class="section-content relative">
+
+<div class="row" id="row-716281742">
+
+	<div id="col-1674082889" class="col medium-3 small-6 large-3">
+				<div class="col-inner">
+<h3><span style="color: #ffffff;"><strong>Giới thiệu</strong></span></h3>
+<p><span style="color: #ffffff;">Về chúng tôi</span></p>
+<p><span style="color: #ffffff;">Tuyển dụng</span></p>
+<p><a href="https://deligo.vn/dieu-khoan/"><span style="color: #ffffff;">Điều khoản - bảo mật</span></a></p>
+<p><a href="https://deligo.vn/cau-hoi-thuong-gap/"><span style="color: #ffffff;">Câu hỏi thường gặp</span></a></p>
+		</div>
+					</div>
+
+	<div id="col-1300805941" class="col medium-3 small-6 large-3">
+				<div class="col-inner">
+<h3><span style="color: #ffffff;"><strong>Khách hàng</strong></span></h3>
+<p><a href="https://deligo.vn/khach-hang-ca-nhan/"><span style="color: #ffffff;">Khách hàng cá nhân</span></a></p>
+<p><a href="https://deligo.vn/khach-hang-doanh-nghiep/"><span style="color: #ffffff;">Khách hàng doanh nghiệp</span></a></p>
+<p><span style="color: #ffffff;">Trung tâm hỗ trợ</span></p>
+		</div>
+					</div>
+
+	<div id="col-1224535908" class="col medium-3 small-6 large-3">
+				<div class="col-inner">
+<h3><span style="color: #ffffff;"><strong>Tài xế</strong></span></h3>
+<p><a href="https://deligo.vn/dang-ky-tai-xe/"><span style="color: #ffffff;">Đăng ký tài xế mới</span></a></p>
+<p><span style="color: #ffffff;">Đào tạo</span></p>
+<p><span style="color: #ffffff;">Chương trình thưởng</span></p>
+<p><a href="https://deligo.vn/quy-tac-ung-xu/"><span style="color: #ffffff;">Quy tắc ứng xử</span></a></p>
+<p><a href="https://deligo.vn/an-toan-chat-luong-chong-gian-lan/"><span style="color: #ffffff;">An toàn - Chất lượng - Chống gian lận</span></a></p>
+		</div>
+					</div>
+
+	<div id="col-712981821" class="col medium-3 small-6 large-3">
+				<div class="col-inner">
+<h3><span style="color: #ffffff;"><strong>Liên hệ</strong></span></h3>
+<p><span style="color: #ffffff;"><span class="font-medium"><strong>Hotline:</strong>&nbsp;</span><a class="text-blue-600 hover:text-blue-800" style="color: #ffffff;" href="tel:+84 288 689 9978">+84 288 689 9978</a></span></p>
+<p><span style="color: #ffffff;"><span class="font-medium"><strong>Email:</strong>&nbsp;</span><a class="text-blue-600 hover:text-blue-800" style="color: #ffffff;" href="mailto:deligrouphcm@gmail.com">deligrouphcm@gmail.com</a></span></p>
+		</div>
+					</div>
+
+</div>
+<div class="text-center"><div class="is-divider divider clearfix" style="max-width:900px;background-color:rgb(253, 253, 253);"></div></div>
+
+<div class="row" id="row-670355188">
+
+	<div id="col-1872797489" class="col medium-4 small-12 large-4">
+				<div class="col-inner">
+<h3 class="text-base font-bold mb-2 text-black uppercase"><span style="color: #ffffff;"><strong>SẢN PHẨM THUỘC CÔNG TY CỔ PHẦN DELIGROUP</strong></span></h3>
+		</div>
+					</div>
+
+	<div id="col-1391259927" class="col medium-8 small-12 large-8">
+				<div class="col-inner">
+<p><span style="color: #ffffff;"><span class="font-bold">Địa chỉ:</span>&nbsp;37 Đường số 57C, Tân Tạo, Thành phố Hồ Chí Minh, Việt Nam</span></p>
+<p class="mt-1"><span style="color: #ffffff;"><span class="font-bold">Mã số thuế:</span>&nbsp;0318952032</span></p>
+		</div>
+					</div>
+
+</div>
+
+		</div>
+
+<style>
+#section_1494960262 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgb(74, 20, 140);
+}
+#section_1494960262 .section-bg-overlay {
+  background-color: rgb(74, 20, 140);
+}
+</style>
+	</section>
+
+<div class="absolute-footer dark medium-text-center small-text-center">
+  <div class="container clearfix">
+    <div class="footer-primary pull-left">
+            <div class="copyright-footer">
+        Bản Quyền 2025 © <strong>Thuộc Về Deligo</strong>      </div>
+          </div>
+  </div>
+</div>
+<button type="button" id="top-link" class="back-to-top button icon invert plain fixed bottom z-1 is-outline circle hide-for-medium" aria-label="Go to top"><i class="icon-angle-up" aria-hidden="true"></i></button>
+</footer>
+
+</div>
   </body>
 </html>
